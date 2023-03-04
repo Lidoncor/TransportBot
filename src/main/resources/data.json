@@ -1,0 +1,188 @@
+{
+   "meta":{
+      "api_version":"3.0.16763",
+      "code":200,
+      "issue_date":"20230225"
+   },
+   "result":{
+      "items":[
+         {
+            "full_name":"Новосибирск, ж/м Западный",
+            "id":"141523467370619",
+            "name":"ж/м Западный",
+            "route_type":"bus",
+            "routes":[
+               {
+                  "direction_ids":[
+                     "141884285741776",
+                     "141884285742695"
+                  ],
+                  "direction_type":"bidirectional",
+                  "from_name":"Тюленина",
+                  "id":"141343078744133",
+                  "name":"39",
+                  "subtype":"bus",
+                  "to_name":"Микрорайон Чистая Слобода"
+               },
+               {
+                  "direction_ids":[
+                     "141884285740491",
+                     "141884285744145"
+                  ],
+                  "direction_type":"bidirectional",
+                  "from_name":"Микрорайон Чистая Слобода",
+                  "id":"141343078744137",
+                  "name":"43",
+                  "subtype":"bus",
+                  "to_name":"Белые росы"
+               },
+               {
+                  "direction_ids":[
+                     "141884285741176",
+                     "141884285741181"
+                  ],
+                  "direction_type":"bidirectional",
+                  "from_name":"Спортивная",
+                  "id":"141343078744665",
+                  "name":"55",
+                  "subtype":"bus",
+                  "to_name":"Вокзал Новосибирск-Главный"
+               },
+               {
+                  "direction_ids":[
+                     "141884285738160",
+                     "141884285740397"
+                  ],
+                  "direction_type":"bidirectional",
+                  "from_name":"Микрорайон Чистая Слобода",
+                  "id":"141343078744102",
+                  "name":"57",
+                  "subtype":"bus",
+                  "to_name":"Александра Чистякова"
+               },
+               {
+                  "direction_ids":[
+                     "141884346799722",
+                     "141884346799739"
+                  ],
+                  "direction_type":"bidirectional",
+                  "from_name":"Метро Площадь Маркса",
+                  "id":"141343325227044",
+                  "name":"94",
+                  "subtype":"bus",
+                  "to_name":"Радуга Сибири"
+               },
+               {
+                  "direction_ids":[
+                     "141884285740306",
+                     "141884285740369"
+                  ],
+                  "direction_type":"bidirectional",
+                  "from_name":"Микрорайон Чистая Слобода",
+                  "id":"141343078744366",
+                  "name":"18",
+                  "subtype":"shuttle_bus",
+                  "to_name":"Биатлонный комплекс"
+               }
+            ],
+            "subtype":"stop",
+            "type":"station"
+         },
+         {
+            "full_name":"Новосибирск, ДК завода Сибтекстильмаш",
+            "id":"141523467370588",
+            "name":"ДК завода Сибтекстильмаш",
+            "route_type":"bus",
+            "routes":[
+               {
+                  "direction_ids":[
+                     "141884285741776",
+                     "141884285742695"
+                  ],
+                  "direction_type":"bidirectional",
+                  "from_name":"Тюленина",
+                  "id":"141343078744133",
+                  "name":"39",
+                  "subtype":"bus",
+                  "to_name":"Микрорайон Чистая Слобода"
+               },
+               {
+                  "direction_ids":[
+                     "141884285740491",
+                     "141884285744145"
+                  ],
+                  "direction_type":"bidirectional",
+                  "from_name":"Микрорайон Чистая Слобода",
+                  "id":"141343078744137",
+                  "name":"43",
+                  "subtype":"bus",
+                  "to_name":"Белые росы"
+               },
+               {
+                  "direction_ids":[
+                     "141884285741176",
+                     "141884285741181"
+                  ],
+                  "direction_type":"bidirectional",
+                  "from_name":"Спортивная",
+                  "id":"141343078744665",
+                  "name":"55",
+                  "subtype":"bus",
+                  "to_name":"Вокзал Новосибирск-Главный"
+               },
+               {
+                  "direction_ids":[
+                     "141884285738160",
+                     "141884285740397"
+                  ],
+                  "direction_type":"bidirectional",
+                  "from_name":"Микрорайон Чистая Слобода",
+                  "id":"141343078744102",
+                  "name":"57",
+                  "subtype":"bus",
+                  "to_name":"Александра Чистякова"
+               },
+               {
+                  "direction_ids":[
+                     "141884346799722",
+                     "141884346799739"
+                  ],
+                  "direction_type":"bidirectional",
+                  "from_name":"Метро Площадь Маркса",
+                  "id":"141343325227044",
+                  "name":"94",
+                  "subtype":"bus",
+                  "to_name":"Радуга Сибири"
+               },
+               {
+                  "direction_ids":[
+                     "141884285737195",
+                     "141884285741619"
+                  ],
+                  "direction_type":"bidirectional",
+                  "from_name":"Вокзал Новосибирск-Главный",
+                  "id":"141343078744288",
+                  "name":"12",
+                  "subtype":"shuttle_bus",
+                  "to_name":"Радуга Сибири"
+               },
+               {
+                  "direction_ids":[
+                     "141884285740306",
+                     "141884285740369"
+                  ],
+                  "direction_type":"bidirectional",
+                  "from_name":"Микрорайон Чистая Слобода",
+                  "id":"141343078744366",
+                  "name":"18",
+                  "subtype":"shuttle_bus",
+                  "to_name":"Биатлонный комплекс"
+               }
+            ],
+            "subtype":"stop",
+            "type":"station"
+         }
+      ],
+      "total":2
+   }
+}
