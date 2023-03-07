@@ -100,8 +100,12 @@ public class Bot extends TelegramLongPollingBot {
         KeyboardButton replyKeyboardButton = new KeyboardButton("Отправить геолокацию");
         replyKeyboardButton.setRequestLocation(true);
 
+
+        KeyboardButton replyKeyboardButton2 = new KeyboardButton("Отменить");
+
         KeyboardRow keyboardRow = new KeyboardRow();
         keyboardRow.add(replyKeyboardButton);
+        keyboardRow.add(replyKeyboardButton2);
 
         ArrayList<KeyboardRow> keyboardRows = new ArrayList<>();
         keyboardRows.add(keyboardRow);
@@ -117,7 +121,14 @@ public class Bot extends TelegramLongPollingBot {
                 SendMessage outMess = new SendMessage();
                 outMess.setChatId(inMess.getChatId().toString());
 
-                if (inMess.hasText() && route.number == null) {
+                if (inMess.hasText() && inMess.getText().equals("Отменить")) {
+                    route.number = null;
+                    route.type = null;
+                    response = "";
+                    output = "";
+                    outMess.setText("Вы отменили ввод");
+                    execute(outMess);
+                } else if (inMess.hasText() && route.number == null) {
                     try {
                         route.number = Integer.parseInt(inMess.getText());
                     } catch (Exception e) {
@@ -143,18 +154,18 @@ public class Bot extends TelegramLongPollingBot {
                     double latitude = location.getLatitude(); // 54.98845307336007 заменить на location.getLatitude()
 
                     //вместо файла data.json
-                    String sURL = "https://catalog.api.2gis.com/3.0/items?q=остановка общественного транспорта&type=station&subtype=stop&fields=items.routes&point="+longitude+","+latitude+"&key=" + GIS_TOKEN;
-                    URL url = new URL(sURL);
-                    URLConnection request = url.openConnection();
-                    request.connect();
+                    //String sURL = "https://catalog.api.2gis.com/3.0/items?q=остановка общественного транспорта&type=station&subtype=stop&fields=items.routes&point="+longitude+","+latitude+"&key=" + GIS_TOKEN;
+                    //URL url = new URL(sURL);
+                    //URLConnection request = url.openConnection();
+                    //request.connect();
 
 
-                    //JsonReader reader = new JsonReader(new FileReader("src/main/resources/data.json")); //убрать
+                    JsonReader reader = new JsonReader(new FileReader("src/main/resources/data.json")); //убрать
                     JsonParser parser = new JsonParser();
 
-                    JsonElement root = parser.parse(new InputStreamReader((InputStream) request.getContent()));
+                    //JsonElement root = parser.parse(new InputStreamReader((InputStream) request.getContent()));
 
-                    //JsonElement root = parser.parse(reader); //убрать
+                    JsonElement root = parser.parse(reader); //убрать
 
                     JsonObject rootObj = root.getAsJsonObject();
                     JsonElement result = rootObj.get("result");
@@ -215,10 +226,12 @@ public class Bot extends TelegramLongPollingBot {
 
                     String direction = "";
                     mainTable = doc.select("table").first();
+
                     if (mainTable.childNodes().get(1).childNodes().get(2).childNodes().get(1).childNodes().get(0).toString().equals("")) {
 
 
                         doc = Jsoup.connect("https://nskgortrans.ru/components/com_planrasp/helpers/grasp.php?tv=mr&m=" + params.m + "&t=" + params.t + "&r=B&sch=" + params.sch + "&s=0&v=0").get();
+                        mainTable = doc.select("table").first();
                         direction = mainTable.childNodes().get(1).childNodes().get(0).childNodes().get(1).childNodes().get(3).childNodes().get(0).toString();
                         for (String userStop : userStops) {
                             timeTable = extractTimeTable(doc, userStop);
@@ -226,6 +239,7 @@ public class Bot extends TelegramLongPollingBot {
                         }
 
                         doc = Jsoup.connect("https://nskgortrans.ru/components/com_planrasp/helpers/grasp.php?tv=mr&m=" + params.m + "&t=" + params.t + "&r=A&sch=" + params.sch + "&s=0&v=0").get();
+                        mainTable = doc.select("table").first();
                         direction = mainTable.childNodes().get(1).childNodes().get(0).childNodes().get(1).childNodes().get(3).childNodes().get(0).toString();
                         for (String userStop : userStops) {
                             timeTable = extractTimeTable(doc, userStop);
@@ -362,12 +376,15 @@ public class Bot extends TelegramLongPollingBot {
                                 try {
                                     String s = m.childNodes().get(0).toString().replaceAll("[^\\d.]", "");
                                     timeTable.get(lastHourValue).add(Integer.parseInt(s));
-                                } catch (Exception ignored) { }
+                                } catch (Exception ignored) {
+                                }
                             }
                         }
-                    } catch (Exception ignored) { }
+                    } catch (Exception ignored) {
+                    }
                 }
-            } catch (Exception ignored) { }
+            } catch (Exception ignored) {
+            }
         }
         return timeTable;
     }
